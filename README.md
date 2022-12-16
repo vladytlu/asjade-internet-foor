@@ -1,9 +1,13 @@
 # asjade-internet-foor
 
 Kasutatud vahendid:
+
 HTML, JS, CSS
+
 Veebilehel on esitatud 2 foorid, ja nodemcuga 2 foorid, mõlemad on võimalik kontrollida veebilehel
+
 4 nuppu:
+
 Jalakäik - alustab pressForGreen funktsioon, mõlemad kui veebilehel kui nodemcu foorid alustavad jalakäija foori tsükli, ehk pea valgusfoor muutub punaseks ja jalakäia foor muutub roheliseks ja tsükkel tuleb tagasi
 
 Vilkumine - alustab pressForYellow funktsioon, mõlemad pea foorid alustavad vilkuma kollase värviga
