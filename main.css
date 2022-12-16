@@ -1,0 +1,40 @@
+   <style>
+    #traffic-signal{
+        border: 8px solid black;
+        padding: 10px 3px;
+        width: 50px;
+        border-radius: 5px;
+    }
+    #traffic-signal > div{
+        width:50px;
+        height: 50px;
+        border-radius: 50%;
+        opacity: .3;
+        
+    }
+    #traffic-signal2{
+        border: 8px solid black;
+        padding: 10px 3px;
+        width: 50px;
+        border-radius: 5px;
+    }
+    #traffic-signal2 > div{
+        width:50px;
+        height: 50px;
+        border-radius: 50%;
+        opacity: .3;
+    }
+    #green, #green2{
+        background-color: green;
+    }
+    #yellow{
+        background-color: yellow;
+    }
+    #red, #red2{
+        background-color: red;
+    }
+    #code {
+        background-color: black;
+        color: white;
+    }
+   </style>
