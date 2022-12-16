@@ -1,7 +1,6 @@
 # Asjade-internet-foor
 
 # Kasutatud vahendid:
-
 HTML, JS, CSS
 
 Google firebase
