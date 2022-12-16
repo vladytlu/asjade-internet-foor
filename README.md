@@ -1,5 +1,7 @@
 # Asjade-internet-foor
 
+http://www.tlu.ee/~vlady/ai/1215/main.html
+
 # Kasutatud vahendid:
 HTML, JS, CSS
 
