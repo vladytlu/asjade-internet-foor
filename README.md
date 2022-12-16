@@ -18,6 +18,7 @@ Roheline laine - kustutab pea algoritmi interval, ehk autoChange setinterval pid
 
 Auto režiim - alustab autoChange funktsioon tagasi, kui oli vajutatud Roheline laine nupp
 
+# Arduino ja nodemcu
 On kasutatud nodemcu ja arduino app, et panna käima lokaalne füsiline foor. On kasutatud nodemcu esp8266 plaat, 5 led lampi, 5 takistajad ja Arduino app, et settida koodi
 
 # Firebase
