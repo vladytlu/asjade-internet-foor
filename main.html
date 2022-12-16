@@ -1,0 +1,206 @@
+<!DOCTYPE html >
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Valgusfoor</title>
+   <style>
+    #traffic-signal{
+        border: 8px solid black;
+        padding: 10px 3px;
+        width: 50px;
+        border-radius: 5px;
+    }
+    #traffic-signal > div{
+        width:50px;
+        height: 50px;
+        border-radius: 50%;
+        opacity: .3;
+        
+    }
+    #traffic-signal2{
+        border: 8px solid black;
+        padding: 10px 3px;
+        width: 50px;
+        border-radius: 5px;
+    }
+    #traffic-signal2 > div{
+        width:50px;
+        height: 50px;
+        border-radius: 50%;
+        opacity: .3;
+    }
+    #green, #green2{
+        background-color: green;
+    }
+    #yellow{
+        background-color: yellow;
+    }
+    #red, #red2{
+        background-color: red;
+    }
+    #code {
+        background-color: black;
+        color: white;
+    }
+   </style>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-app.js";
+        import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-database.js";
+        const firebaseConfig = {
+      apiKey: "AIzaSyDEvO0STxZnG0xCDe681xHI4IE0npRNsvI",
+      authDomain: "asjadeinternet-67555.firebaseapp.com",
+      databaseURL: "https://asjadeinternet-67555-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "asjadeinternet-67555",
+      storageBucket: "asjadeinternet-67555.appspot.com",
+      messagingSenderId: "975599847990",
+      appId: "1:975599847990:web:855f48a51822d1ec146697"
+    };
+      const app = initializeApp(firebaseConfig);
+      const db=getDatabase();
+      const trafficSignal = ref(db,"1008")
+      onValue(trafficSignal, kuva);
+      function kuva(viit){
+        let sisu=viit.val();
+          console.log(sisu);
+         //kiht2.innerHTML=sisu.yhendatud;    
+      }
+      //window.pressForGreen2=function(){
+        //console.log("vajutati");
+        //set(trafficSignal, {"yhendatud":"roheline"});
+        //setInterval(function(){
+          //set(trafficSignal, {"yhendatud":"punane"});
+        //}, 10000)
+      //}
+    
+        var green=document.getElementById("green");
+        var red=document.getElementById("red");
+        var yellow=document.getElementById("yellow");
+        var green2=document.getElementById("green2");
+        var red2=document.getElementById("red2");
+        green.style.opacity = 1;
+        red2.style.opacity=1;
+        set(trafficSignal, {"valgus1":"roheline"});
+
+        let autoChange = function () {
+            console.log("load");
+            function startTrafficSignal () {
+                set(trafficSignal, {"valgus1":"roheline"});
+                setTimeout(function () {
+                    green.style.opacity=.3;
+                    red.style.opacity=.3;
+                    yellow.style.opacity=1;
+                    set(trafficSignal, {"valgus1":"kollane"});
+                },2000);
+                setTimeout(function () {
+                    green.style.opacity=.3;
+                    red.style.opacity=1;      
+                    yellow.style.opacity=.3;
+                    set(trafficSignal, {"valgus1":"punane"});
+                },4000);
+                setTimeout(function () {
+                    green.style.opacity=.3;
+                    red.style.opacity=.3;
+                    yellow.style.opacity=1;
+                    set(trafficSignal, {"valgus1":"kollane"});
+                },10000);
+                setTimeout(function () {
+                    green.style.opacity=1;
+                    red.style.opacity=.3;
+                    yellow.style.opacity=.3;
+                    set(trafficSignal, {"valgus1":"roheline"});
+                },12000);
+            }
+            startTrafficSignal();
+        }
+        let autoChange2 = setInterval(autoChange, 20000);
+
+        window.pressForGreen = function () {
+            console.log("click");
+            clearInterval(autoChange2);
+            function startTrafficSignal () {
+                setTimeout(function () {
+                    green.style.opacity=.3;
+                    red.style.opacity=.3;
+                    red2.style.opacity=1;
+                    yellow.style.opacity=1;
+                    set(trafficSignal, {"valgus1":"kollane"});
+                },2000);
+                setTimeout(function () {
+                    green.style.opacity=.3;
+                    red.style.opacity=1;      
+                    red2.style.opacity=.3;   
+                    yellow.style.opacity=.3;
+                    green2.style.opacity = 1;
+                    set(trafficSignal, {"valgus2":"roheline"});
+                },4000);
+                setTimeout(function () {
+                    green.style.opacity=.3;
+                    red.style.opacity=.3;
+                    yellow.style.opacity=1;
+                    set(trafficSignal, {"valgus1":"kollane"});
+                },7000);
+                setTimeout(function () {
+                    green2.style.opacity=.3;
+                    green.style.opacity=1;
+                    red.style.opacity=.3;
+                    red2.style.opacity=1;
+                    yellow.style.opacity=.3;
+                    set(trafficSignal, {"valgus1":"roheline"});;
+                    autoChange2 = setInterval(autoChange, 20000);
+                },10000);
+            }
+            startTrafficSignal();
+        }
+        window.pressForYellow = function (){
+            setInterval(function () {
+            function startYellow () {
+                console.log("click");
+                clearInterval(autoChange2);
+                setTimeout(function () {
+                    yellow.style.opacity=1;
+                    green.style.opacity=.3;
+                    red2.style.opacity=.3;
+                    set(trafficSignal, {"valgus2":"kollane1"});
+                }, 2000);
+                setTimeout(function () {
+                    yellow.style.opacity=.3;
+                    set(trafficSignal, {"valgus2":"kollane2"});
+                }, 1000);
+            }
+            startYellow();
+        }, 3000);
+    }
+        window.greenCoridor = function(){
+            console.log("cleared");
+            clearInterval(autoChange2);
+        }
+
+        window.auto = function(){
+            console.log("auto")
+            autoChange2 = setInterval(autoChange, 20000);
+        }
+
+        </script>   
+    </head>
+    <body>
+    <h1>Valgusfoor</h1>
+    <div id="traffic-signal">
+        <div id="red"></div>
+        <div id="yellow"></div>
+        <div id="green"></div>
+    </div>
+    <br>
+    <div  id="traffic-signal2">
+        <div id="red2"></div>
+        <div id="green2"></div>
+    </div>
+    <br>
+    <button onclick="pressForGreen()">Jalakäik</button>
+    <button onclick="pressForYellow()">Vilkumine</button>
+    <button onclick="greenCoridor()">Roheline laine</button>
+    <button onclick="auto()">Auto Reziim</button>
+    <a href="https://youtube.com/shorts/ow8SGyIWP6s?feature=share">Näidis video</a>
+    <div id="code">
+</div>
+</body>
+</html>
