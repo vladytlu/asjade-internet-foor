@@ -16,17 +16,8 @@
       onValue(trafficSignal, kuva);
       function kuva(viit){
         let sisu=viit.val();
-          console.log(sisu);
-         //kiht2.innerHTML=sisu.yhendatud;    
+          console.log(sisu);  
       }
-      //window.pressForGreen2=function(){
-        //console.log("vajutati");
-        //set(trafficSignal, {"yhendatud":"roheline"});
-        //setInterval(function(){
-          //set(trafficSignal, {"yhendatud":"punane"});
-        //}, 10000)
-      //}
-    
         var green=document.getElementById("green");
         var red=document.getElementById("red");
         var yellow=document.getElementById("yellow");
